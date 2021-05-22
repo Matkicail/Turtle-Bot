@@ -1,0 +1,8 @@
+build/
+devel/
+logs/
+bin/
+lib/
+
+CMakeLists.txt.user
+CATKIN_IGNORE
