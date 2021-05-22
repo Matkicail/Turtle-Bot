@@ -3,7 +3,7 @@
 
 # Relative path conversion top directories.
 set(CMAKE_RELATIVE_PATH_TOP_SOURCE "/usr/src/gmock")
-set(CMAKE_RELATIVE_PATH_TOP_BINARY "/home/pravesh/ros_home/robot_assignment_ws/build")
+set(CMAKE_RELATIVE_PATH_TOP_BINARY "/home/jaredl/ros_home/Turtle-Bot/build")
 
 # Force unix paths in dependencies.
 set(CMAKE_FORCE_UNIX_PATHS 1)
