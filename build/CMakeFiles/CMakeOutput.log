@@ -748,3 +748,59 @@ Linking C executable cmTC_82254
 make[1]: Leaving directory '/home/matthew/ros_home/Turtle-Bot/Turtle-Bot/build/CMakeFiles/CMakeTmp'
 
 
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/jaredl/ros_home/Turtle-Bot/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_29198/fast"
+/usr/bin/make -f CMakeFiles/cmTC_29198.dir/build.make CMakeFiles/cmTC_29198.dir/build
+make[1]: Entering directory '/home/jaredl/ros_home/Turtle-Bot/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_29198.dir/CheckIncludeFile.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_29198.dir/CheckIncludeFile.c.o   -c /home/jaredl/ros_home/Turtle-Bot/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_29198
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_29198.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_29198.dir/CheckIncludeFile.c.o  -o cmTC_29198 -rdynamic 
+make[1]: Leaving directory '/home/jaredl/ros_home/Turtle-Bot/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/jaredl/ros_home/Turtle-Bot/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_748d8/fast"
+/usr/bin/make -f CMakeFiles/cmTC_748d8.dir/build.make CMakeFiles/cmTC_748d8.dir/build
+make[1]: Entering directory '/home/jaredl/ros_home/Turtle-Bot/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_748d8.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_748d8.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_748d8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_748d8.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_748d8.dir/CheckFunctionExists.c.o  -o cmTC_748d8 -rdynamic -lpthread 
+make[1]: Leaving directory '/home/jaredl/ros_home/Turtle-Bot/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/jaredl/ros_home/Turtle-Bot/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a7358/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a7358.dir/build.make CMakeFiles/cmTC_a7358.dir/build
+make[1]: Entering directory '/home/jaredl/ros_home/Turtle-Bot/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a7358.dir/CheckIncludeFile.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_a7358.dir/CheckIncludeFile.c.o   -c /home/jaredl/ros_home/Turtle-Bot/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_a7358
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a7358.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_a7358.dir/CheckIncludeFile.c.o  -o cmTC_a7358 -rdynamic 
+make[1]: Leaving directory '/home/jaredl/ros_home/Turtle-Bot/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/jaredl/ros_home/Turtle-Bot/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_8775f/fast"
+/usr/bin/make -f CMakeFiles/cmTC_8775f.dir/build.make CMakeFiles/cmTC_8775f.dir/build
+make[1]: Entering directory '/home/jaredl/ros_home/Turtle-Bot/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8775f.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_8775f.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_8775f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8775f.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_8775f.dir/CheckFunctionExists.c.o  -o cmTC_8775f -rdynamic -lpthread 
+make[1]: Leaving directory '/home/jaredl/ros_home/Turtle-Bot/build/CMakeFiles/CMakeTmp'
+
+

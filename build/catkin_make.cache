@@ -1,2 +1,2 @@
 turtlebot_interactions/turtlebot_dashboard:turtlebot_interactions/turtlebot_interactions:turtlebot_interactions/turtlebot_interactive_markers:turtlebot_interactions/turtlebot_rviz_launchers:turtlebot_source
--DCATKIN_DEVEL_PREFIX=/home/matthew/ros_home/Turtle-Bot/Turtle-Bot/devel -DCMAKE_INSTALL_PREFIX=/home/matthew/ros_home/Turtle-Bot/Turtle-Bot/install -G Unix Makefiles
+-DCATKIN_DEVEL_PREFIX=/home/jaredl/ros_home/Turtle-Bot/devel -DCMAKE_INSTALL_PREFIX=/home/jaredl/ros_home/Turtle-Bot/install -G Unix Makefiles

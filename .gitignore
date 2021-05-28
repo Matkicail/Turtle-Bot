@@ -1,8 +1,8 @@
-build/
-devel/
-logs/
-bin/
-lib/
+[Bb]uild/
+[Dd]evel/
+[Ll]ogs/
+[Bb]in/
+[Ll]ib/
 
 CMakeLists.txt.user
 CATKIN_IGNORE

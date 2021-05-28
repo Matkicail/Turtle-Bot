@@ -1,4 +1,4 @@
-prefix=/home/matthew/ros_home/Turtle-Bot/Turtle-Bot/devel
+prefix=/home/jaredl/ros_home/Turtle-Bot/devel
 
 Name: turtlebot_dashboard
 Description: Description of turtlebot_dashboard

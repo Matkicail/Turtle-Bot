@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "".split(';') if "" != "" else []
 PROJECT_CATKIN_DEPENDS = "".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "turtlebot_dashboard"
-PROJECT_SPACE_DIR = "/home/matthew/ros_home/Turtle-Bot/Turtle-Bot/devel"
+PROJECT_SPACE_DIR = "/home/jaredl/ros_home/Turtle-Bot/devel"
 PROJECT_VERSION = "2.3.1"

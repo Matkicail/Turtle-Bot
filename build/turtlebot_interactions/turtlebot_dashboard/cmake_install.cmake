@@ -1,8 +1,8 @@
-# Install script for directory: /home/matthew/ros_home/Turtle-Bot/Turtle-Bot/src/turtlebot_interactions/turtlebot_dashboard
+# Install script for directory: /home/jaredl/ros_home/Turtle-Bot/src/turtlebot_interactions/turtlebot_dashboard
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/matthew/ros_home/Turtle-Bot/Turtle-Bot/install")
+  set(CMAKE_INSTALL_PREFIX "/home/jaredl/ros_home/Turtle-Bot/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,21 +33,21 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/matthew/ros_home/Turtle-Bot/Turtle-Bot/build/turtlebot_interactions/turtlebot_dashboard/catkin_generated/installspace/turtlebot_dashboard.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/jaredl/ros_home/Turtle-Bot/build/turtlebot_interactions/turtlebot_dashboard/catkin_generated/installspace/turtlebot_dashboard.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/turtlebot_dashboard/cmake" TYPE FILE FILES
-    "/home/matthew/ros_home/Turtle-Bot/Turtle-Bot/build/turtlebot_interactions/turtlebot_dashboard/catkin_generated/installspace/turtlebot_dashboardConfig.cmake"
-    "/home/matthew/ros_home/Turtle-Bot/Turtle-Bot/build/turtlebot_interactions/turtlebot_dashboard/catkin_generated/installspace/turtlebot_dashboardConfig-version.cmake"
+    "/home/jaredl/ros_home/Turtle-Bot/build/turtlebot_interactions/turtlebot_dashboard/catkin_generated/installspace/turtlebot_dashboardConfig.cmake"
+    "/home/jaredl/ros_home/Turtle-Bot/build/turtlebot_interactions/turtlebot_dashboard/catkin_generated/installspace/turtlebot_dashboardConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/turtlebot_dashboard" TYPE FILE FILES "/home/matthew/ros_home/Turtle-Bot/Turtle-Bot/src/turtlebot_interactions/turtlebot_dashboard/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/turtlebot_dashboard" TYPE FILE FILES "/home/jaredl/ros_home/Turtle-Bot/src/turtlebot_interactions/turtlebot_dashboard/package.xml")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/turtlebot_dashboard" TYPE DIRECTORY FILES "/home/matthew/ros_home/Turtle-Bot/Turtle-Bot/src/turtlebot_interactions/turtlebot_dashboard/launch")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/turtlebot_dashboard" TYPE DIRECTORY FILES "/home/jaredl/ros_home/Turtle-Bot/src/turtlebot_interactions/turtlebot_dashboard/launch")
 endif()
 
