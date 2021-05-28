@@ -1,4 +1,4 @@
-prefix=/home/jaredl/ros_home/Turtle-Bot/install
+prefix=/home/matthew/ros_home/Turtle-Bot/Turtle-Bot/install
 
 Name: turtlebot_rviz_launchers
 Description: Description of turtlebot_rviz_launchers
