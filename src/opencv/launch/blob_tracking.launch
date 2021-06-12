@@ -1,0 +1,3 @@
+<launch>
+  <node type="find_ball.py" pkg="opencv" name="blob_tracking_node" output="screen"></node>
+</launch>
