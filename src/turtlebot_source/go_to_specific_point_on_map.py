@@ -26,7 +26,6 @@ from actionlib_msgs.msg import *
 from geometry_msgs.msg import Pose, Point, Quaternion
 import numpy as np
 
-objectFound = False
 class GoToPose():
     def __init__(self):
 
@@ -73,11 +72,35 @@ class GoToPose():
     def shutdown(self):
         self.move_base.cancel_goal()
         rospy.loginfo("Stop")
+        rospy.sleep(2)
+
+#---------------------------------------------------------------------
+rospy.init_node('nav_test', anonymous=False)
+navigator = GoToPose()
+quaternion = {'r1' : 0.000, 'r2' : 0.000, 'r3' : 0.000, 'r4' : 1.000}
+objectFound = False
+
+#---------------------------------------------------------------------
+def callbackObjectFound(coordinates):
+    print(coordinates)
+    global objectFound
+    objectFound = True
+    position = {'x': coordinates.x, 'y' : coordinates.y}
+    navigator.shutdown()
+    success = navigator.goto(position, quaternion)
+
+    while not success:
+        navigator.shutdown()
+        success = navigator.goto(position, quaternion)
         rospy.sleep(1)
+        print("Could not find goal")
+
+#---------------------------------------------------------------------
 
 if __name__ == '__main__':
+    rospy.Subscriber('objectCoordinate', Point, callbackObjectFound)
+
     try:
-        #point of interests
         pointsOfInterests=np.array([[0,0],
                                     [5.7677,-0.055],
                                     [6.09,6.08],
@@ -92,13 +115,7 @@ if __name__ == '__main__':
                                     [-2.9432,3.1102],
                                     [0,0]]).astype(float)
 
-        rospy.init_node('nav_test', anonymous=False)
-        navigator = GoToPose()
-
-        # Customize the following values so they are appropriate for your location
-        
-        quaternion = {'r1' : 0.000, 'r2' : 0.000, 'r3' : 0.000, 'r4' : 1.000}
-        counter=5
+        counter=8
         global objectFound
         while objectFound != True:
             position = {'x': (pointsOfInterests[counter][0]), 'y' : (pointsOfInterests[counter][1])}
@@ -116,8 +133,6 @@ if __name__ == '__main__':
             else:
                 rospy.loginfo("The base failed to reach the desired pose")
             rospy.sleep(1)
-
-            
 
         # Sleep to give the last log messages time to be sent
         

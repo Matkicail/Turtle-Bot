@@ -49,7 +49,7 @@ def run():
     global flagFound
 
     # rospy.wait_for_service('spawn')
-    publishObjectPosition = rospy.Publisher('objectCoordinate', String, queue_size=1)
+    publishObjectPosition = rospy.Publisher('objectCoordinate', Point, queue_size=1)
     rate = rospy.Rate(2)
     sub = rospy.Subscriber('/blob/point_blob', Point, callbackRun)
 
@@ -77,18 +77,20 @@ def run():
             twist.linear.x = linear[0] + blob_distance * math.cos(angular[2])
             twist.linear.y = linear[1] + blob_distance * math.sin(angular[2])
 
-            coordinateString = "{0},{1}".format(twist.linear.x, twist.linear.y)
+            coordinate = Point()
+            coordinate.x = twist.linear.x
+            coordinate.y = twist.linear.y
 
             if(math.isnan(twist.linear.x) or math.isnan(twist.linear.y)):
                 flagFound = False
                 found = False
                 continue
 
-            print(coordinateString)
+            print(coordinate)
             print(found)
 
             #Publish coordinates
-            publishObjectPosition.publish(coordinateString)
+            publishObjectPosition.publish(coordinate)
             blob_position = 0
             rate.sleep()
             found = False
