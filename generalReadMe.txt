@@ -17,3 +17,6 @@ FURTHER NOTES:
 in rviz, add a map, put the topic of the map to /map
 in rviz, add the robot model to see it move.
 
+Jono:
+roslaunch turtlebot_gazebo amcl_demo.launch map_file:=/home/jaredl/ros_home/Turtle-Bot/ros_home.yaml
+roslaunch turtlebot_rviz_launchers view_navigation.launch
