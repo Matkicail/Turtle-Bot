@@ -77,32 +77,30 @@ class GoToPose():
 if __name__ == '__main__':
     try:
         #point of interests
-        pointsOfInterests=np.array([[150,325],
-                                    [135,125],
-                                    [310,140],
-                                    [175,150],
-                                    [300,150],
-                                    [300,200],
-                                    [240,215],
-                                    [375,225],
-                                    [380,275],
-                                    [240,275],
-                                    [215,315],
-                                    [265,340],
-                                    [330,360],
-                                    [380,330]]).astype(float)
-        pointsOfInterests[:,0]=pointsOfInterests[:,0]*(-0.05)+17
-        pointsOfInterests[:,1]=pointsOfInterests[:,1]*0.05-13
+        pointsOfInterests=np.array([[0,0],
+                                    [5.7677,-0.055],
+                                    [6.09,6.08],
+                                    [2.1997,6.5573],
+                                    [2.042,9.7708],
+                                    [-5.4973,10.88],
+                                    [-5.4973,1.3793],
+                                    [-5.4973,10.88],
+                                    [1.836,9.5812],
+                                    [-0.67498,6.4268],
+                                    [2.0049,3.5128],
+                                    [-2.9432,3.1102],
+                                    [0,0]]).astype(float)
+
         rospy.init_node('nav_test', anonymous=False)
         navigator = GoToPose()
 
         # Customize the following values so they are appropriate for your location
         
         quaternion = {'r1' : 0.000, 'r2' : 0.000, 'r3' : 0.000, 'r4' : 1.000}
-        counter=0
+        counter=5
         objectFound=False
         while objectFound != True:
-            position = {'x': (pointsOfInterests[counter][1]), 'y' : (pointsOfInterests[counter][0])}
+            position = {'x': (pointsOfInterests[counter][0]), 'y' : (pointsOfInterests[counter][1])}
             
             rospy.loginfo("Go to (%s, %s) pose counter: %s", position['x'], position['y'], counter)
             
