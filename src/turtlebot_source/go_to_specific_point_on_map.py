@@ -26,6 +26,7 @@ from actionlib_msgs.msg import *
 from geometry_msgs.msg import Pose, Point, Quaternion
 import numpy as np
 
+objectFound = False
 class GoToPose():
     def __init__(self):
 
@@ -98,7 +99,7 @@ if __name__ == '__main__':
         
         quaternion = {'r1' : 0.000, 'r2' : 0.000, 'r3' : 0.000, 'r4' : 1.000}
         counter=5
-        objectFound=False
+        global objectFound
         while objectFound != True:
             position = {'x': (pointsOfInterests[counter][0]), 'y' : (pointsOfInterests[counter][1])}
             
