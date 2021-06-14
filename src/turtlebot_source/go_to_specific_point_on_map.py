@@ -70,40 +70,28 @@ class GoToPose():
         return result
 
     def shutdown(self):
-        if self.goal_sent:
-            self.move_base.cancel_goal()
+        self.move_base.cancel_goal()
         rospy.loginfo("Stop")
         rospy.sleep(1)
 
 if __name__ == '__main__':
     try:
         #point of interests
-        pointsOfInterests=np.array([[90,135],
-[135,135],
-[134,180],
-[135,225],
-[135,270],
-[134,314],
-[179,180],
-[179,314],
-[225,134],
-[225,314],
-[224,360],
-[225,405],
-[270,134],
-[269,224],
-[270,269],
-[269,314],
-[270,359],
-[315,134],
-[314,225],
-[314,270],
-[314,315],
-[314,360],
-[359,270],
-[360,314],
-[359,359]])
-        pointsOfInterests[:,0]=pointsOfInterests[:,0]*(-0.04)+13.6
+        pointsOfInterests=np.array([[150,325],
+                                    [135,125],
+                                    [310,140],
+                                    [175,150],
+                                    [300,150],
+                                    [300,200],
+                                    [240,215],
+                                    [375,225],
+                                    [380,275],
+                                    [240,275],
+                                    [215,315],
+                                    [265,340],
+                                    [330,360],
+                                    [380,330]]).astype(float)
+        pointsOfInterests[:,0]=pointsOfInterests[:,0]*(-0.05)+17
         pointsOfInterests[:,1]=pointsOfInterests[:,1]*0.05-13
         rospy.init_node('nav_test', anonymous=False)
         navigator = GoToPose()
@@ -113,10 +101,10 @@ if __name__ == '__main__':
         quaternion = {'r1' : 0.000, 'r2' : 0.000, 'r3' : 0.000, 'r4' : 1.000}
         counter=0
         objectFound=False
-        while objectFound!=True:
+        while objectFound != True:
             position = {'x': (pointsOfInterests[counter][1]), 'y' : (pointsOfInterests[counter][0])}
             
-            rospy.loginfo("Go to (%s, %s) pose", position['x'], position['y'])
+            rospy.loginfo("Go to (%s, %s) pose counter: %s", position['x'], position['y'], counter)
             
             success = navigator.goto(position, quaternion)
             
