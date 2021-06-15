@@ -89,6 +89,32 @@ def callbackObjectFound(coordinates):
     navigator.shutdown()
     success = navigator.goto(position, quaternion)
 
+    #Radius around object and temp position
+    radius = 0.25
+    tempPosition = position
+
+    
+    #Move around object 1
+    tempPosition.x = position.x + radius
+    tempPosition.y = position.x + radius
+    success = navigator.goto(tempPosition, quaternion)
+
+    #Move around object 2
+    tempPosition.x = position.x + radius
+    tempPosition.y = position.x - radius
+    success = navigator.goto(tempPosition, quaternion)
+
+    #Move around object 3
+    tempPosition.x = position.x - radius
+    tempPosition.y = position.x + radius
+    success = navigator.goto(tempPosition, quaternion)
+
+    #Move around object 4
+    tempPosition.x = position.x - radius
+    tempPosition.y = position.x - radius
+    success = navigator.goto(tempPosition, quaternion)
+
+
     while not success:
         navigator.shutdown()
         success = navigator.goto(position, quaternion)
@@ -102,8 +128,8 @@ if __name__ == '__main__':
 
     try:
         pointsOfInterests=np.array([[0,0],
-                                    [5.7677,-0.055],
-                                    [6.09,6.08],
+                                    [5.8,-0.055],
+                                    [5.8,6.08],
                                     [2.1997,6.5573],
                                     [2.042,9.7708],
                                     [-5.4973,10.88],
@@ -115,7 +141,7 @@ if __name__ == '__main__':
                                     [-2.9432,3.1102],
                                     [0,0]]).astype(float)
 
-        counter=8
+        counter=1
         global objectFound
         while objectFound != True:
             position = {'x': (pointsOfInterests[counter][0]), 'y' : (pointsOfInterests[counter][1])}

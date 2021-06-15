@@ -233,6 +233,7 @@ def get_blob_relative_position(image, keyPoint):
     y = (keyPoint.pt[1] - center_y)/(center_y)
     return(x,y)
         
+ #([-1,1] + 1) * pi
  
         
 #----------- TEST

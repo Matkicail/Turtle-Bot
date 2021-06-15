@@ -33,7 +33,7 @@ def callbackRun(data):
     found = True
     flagFound = True
 
-    blob_position = data.x
+    blob_position = data
     blob_distance = data.z
 
 def run():
@@ -60,6 +60,16 @@ def run():
     rospy.sleep(1)
     while not rospy.is_shutdown():
         if(not found):
+            # try:
+
+            #     (trans,rot) = listener.lookupTransform('/map', '/base_link', rospy.Time(0))
+            #     angular = tf.transformations.euler_from_quaternion([rot[0], rot[1], rot[2], rot[3]])
+            #     print(angular[2])
+                
+            #     if(abs(angular[2]) > math.pi/2):
+            #         print("hi")
+            # except:
+            #     pass
             rate.sleep()
             continue
         elif found and flagFound:
@@ -72,10 +82,45 @@ def run():
 
             angular = tf.transformations.euler_from_quaternion([rot[0], rot[1], rot[2], rot[3]])
 
-            #Set calculations
+            robotRotation = angular[2]
+
+            if(robotRotation < 0):
+                robotRotation += 2 * math.pi
+
+            angle = (blob_position.x) * math.pi/2
+            print(angle)
+
+            #Correct it if it's in the wrong range
+            if(angle > 0 and 0 < robotRotation < math.pi/2):
+                angle = angle
+                print("hi")
+            elif (angle < 0 and 0 < robotRotation < math.pi/2):
+                angle = angle + math.pi/2
+                print("hi2")
+            elif(angle < 0 and  math.pi/2 < robotRotation < math.pi):
+                print("hi3")
+                angle = math.pi - abs(angle)
+            elif(angle > 0 and  math.pi/2 < robotRotation < math.pi):
+                print("hi4")
+                angle = angle + math.pi /2
+            elif angle < 0 and math.pi < robotRotation < 1.5 * math.pi:
+                print("hi5")
+                angle = abs(angle) + math.pi/2
+            elif angle > 0 and math.pi < robotRotation < 1.5 * math.pi:
+                print("hi6")
+                angle = abs(angle) + math.pi/2
+            elif angle < 0 and 1.5 * math.pi < robotRotation < 2 * math.pi:
+                print("hi7")
+                angle = angle
+            elif angle > 0 and 1.5 * math.pi < robotRotation < 2 * math.pi:
+                print("hi8")
+                angle = angle + 1.5 * math.pi
+
+
             linear = trans
-            twist.linear.x = linear[0] + blob_distance * math.cos(angular[2])
-            twist.linear.y = linear[1] + blob_distance * math.sin(angular[2])
+
+            twist.linear.x = linear[0] + blob_distance * math.cos(angle)
+            twist.linear.y = linear[1] + blob_distance * math.sin(angle)
 
             coordinate = Point()
             coordinate.x = twist.linear.x
