@@ -23,7 +23,7 @@ import rospy
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 import actionlib
 from actionlib_msgs.msg import *
-from geometry_msgs.msg import Pose, Point, Quaternion
+from geometry_msgs.msg import Pose, Point, Quaternion, Twist
 import numpy as np
 
 class GoToPose():
@@ -60,6 +60,7 @@ class GoToPose():
         state = self.move_base.get_state()
         result = False
 
+
         if success and state == GoalStatus.SUCCEEDED:
             # We made it!
             result = True
@@ -70,6 +71,7 @@ class GoToPose():
         return result
 
     def shutdown(self):
+        self.goal_sent = False
         self.move_base.cancel_goal()
         rospy.loginfo("Stop")
         rospy.sleep(2)
@@ -79,47 +81,19 @@ rospy.init_node('nav_test', anonymous=False)
 navigator = GoToPose()
 quaternion = {'r1' : 0.000, 'r2' : 0.000, 'r3' : 0.000, 'r4' : 1.000}
 objectFound = False
-
+pub = rospy.Publisher('/mobile_base/commands/velocity', Twist, queue_size = 1)
 #---------------------------------------------------------------------
 def callbackObjectFound(coordinates):
-    print(coordinates)
     global objectFound
     objectFound = True
-    position = {'x': coordinates.x, 'y' : coordinates.y}
     navigator.shutdown()
-    success = navigator.goto(position, quaternion)
+    twist = Twist()
+    twist.angular.z = 1
 
-    #Radius around object and temp position
-    radius = 0.25
-    tempPosition = position
+    while not rospy.is_shutdown():
+        pub.publish(twist)
+        rospy.sleep(0.2)
 
-    
-    #Move around object 1
-    tempPosition.x = position.x + radius
-    tempPosition.y = position.x + radius
-    success = navigator.goto(tempPosition, quaternion)
-
-    #Move around object 2
-    tempPosition.x = position.x + radius
-    tempPosition.y = position.x - radius
-    success = navigator.goto(tempPosition, quaternion)
-
-    #Move around object 3
-    tempPosition.x = position.x - radius
-    tempPosition.y = position.x + radius
-    success = navigator.goto(tempPosition, quaternion)
-
-    #Move around object 4
-    tempPosition.x = position.x - radius
-    tempPosition.y = position.x - radius
-    success = navigator.goto(tempPosition, quaternion)
-
-
-    while not success:
-        navigator.shutdown()
-        success = navigator.goto(position, quaternion)
-        rospy.sleep(1)
-        print("Could not find goal")
 
 #---------------------------------------------------------------------
 
@@ -148,7 +122,8 @@ if __name__ == '__main__':
             
             rospy.loginfo("Go to (%s, %s) pose counter: %s", position['x'], position['y'], counter)
             
-            success = navigator.goto(position, quaternion)
+            if objectFound != True:
+                success = navigator.goto(position, quaternion)
             
             counter=counter+1
             if counter==len(pointsOfInterests):
@@ -161,6 +136,7 @@ if __name__ == '__main__':
             rospy.sleep(1)
 
         # Sleep to give the last log messages time to be sent
+        rospy.spin()
         
     except rospy.ROSInterruptException:
         rospy.loginfo("Ctrl-C caught. Quitting")
